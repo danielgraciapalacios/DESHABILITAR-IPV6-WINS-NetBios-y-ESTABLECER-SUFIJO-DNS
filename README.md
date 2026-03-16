@@ -40,3 +40,26 @@ El script modifica directamente el registro de Windows y utiliza comandos nativo
 1. **Descarga el script** o clona este repositorio:
    ```bash
    git clone https://github.com/danielgraciapalacios/DESHABILITAR-IPV6-WINS-NetBios-y-ESTABLECER-SUFIJO-DNS.git
+   ```
+2. Abre PowerShell como Administrador (clic derecho → "Ejecutar como administrador").
+3. Navega hasta la carpeta donde se encuentra el script.
+4. **Ejecutar**:
+   ```bash
+   powershell -ExecutionPolicy Bypass -File ".\SCRIPT IPV6, DNS y WINS-NetBios.ps1"
+   ```
+5. Observa la salida en pantalla. El script mostrará cada paso y al final un resumen de verificación para cada adaptador.
+
+## 🔧 Personalización
+El sufijo DNS por defecto está configurado como example.com. Para adaptarlo a tu dominio, edita la línea correspondiente en el script:
+   ´´´bash
+   $suffix = "example.com"   # Cambia por tu dominio, ej. "miempresa.local"
+   ´´´
+Si deseas modificar algún otro comportamiento (por ejemplo, no deshabilitar IPv6 en determinados adaptadores), puedes ajustar el script añadiendo condiciones sobre el nombre del adaptador ($adapter.Name).
+
+Nota: La sección de configuración de DNS automático (DHCP) se encuentra comentada en el script. Si necesitas restablecer los servidores DNS a DHCP, descomenta las líneas correspondientes (bloque # 2. Configurar DNS automático (DHCP)).
+
+## ⚠️ Advertencias
+- El script modifica todos los adaptadores de red, incluidos los virtuales (Hyper‑V, VPN, etc.). Si necesitas excluir alguno, debes adaptar el código.
+- Deshabilitar IPv6 puede afectar a ciertas aplicaciones que dependan de él. Asegúrate de que tu entorno funciona correctamente sin IPv6.
+- Se recomienda realizar una copia de seguridad del registro o crear un punto de restauración antes de ejecutar el script por primera vez.
+- El script fuerza el reinicio de los servicios Dnscache y NlaSvc, lo que puede causar una breve interrupción en la conectividad de red.
