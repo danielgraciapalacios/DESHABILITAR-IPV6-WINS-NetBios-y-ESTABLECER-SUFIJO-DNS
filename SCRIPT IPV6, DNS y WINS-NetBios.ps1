@@ -1,5 +1,5 @@
 # Creado por DANIEL GRACIA - https://www.linkedin.com/in/daniel-gracia-palacios/
-# Experto en informática trabajando en Getronics en 2026
+# Experto en informática en 2026
 
 # Script de configuración de red completa
 # Requiere ejecución como administrador
