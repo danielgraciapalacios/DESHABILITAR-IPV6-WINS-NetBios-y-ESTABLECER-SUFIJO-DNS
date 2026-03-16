@@ -51,9 +51,9 @@ El script modifica directamente el registro de Windows y utiliza comandos nativo
 
 ## 🔧 Personalización
 El sufijo DNS por defecto está configurado como example.com. Para adaptarlo a tu dominio, edita la línea correspondiente en el script:
-   ´´´bash
+   ```bash
    $suffix = "example.com"   # Cambia por tu dominio, ej. "miempresa.local"
-   ´´´
+   ```
 Si deseas modificar algún otro comportamiento (por ejemplo, no deshabilitar IPv6 en determinados adaptadores), puedes ajustar el script añadiendo condiciones sobre el nombre del adaptador ($adapter.Name).
 
 Nota: La sección de configuración de DNS automático (DHCP) se encuentra comentada en el script. Si necesitas restablecer los servidores DNS a DHCP, descomenta las líneas correspondientes (bloque # 2. Configurar DNS automático (DHCP)).
